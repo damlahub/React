@@ -1,5 +1,6 @@
 import UseStateBasics from "./tutorial/01-useState/starter/02-useState-basics";
-import UseStateArray from "./tutorial/01-useState/final/03-useState-array";
+import UseStateArray from "./tutorial/01-useState/starter/03-useState-array";
+import UseStateObject from "./tutorial/01-useState/starter/04-useState-object";
 
 function App() {
   return (
@@ -10,7 +11,10 @@ function App() {
       {/* <UseStateBasics/> */}
 
       {/* Remove All Items and Remove Item */}
-      <UseStateArray/>
+      {/* <UseStateArray/> */}
+      
+      <UseStateObject/>
+
     </div>
   );
 }

@@ -1,32 +1,30 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { data } from '../../../data';
-
 const UseStateArray = () => {
-  const [people, setPeople] = useState(data);
-  // console.log(people);
+  const [people, setPeople] = React.useState(data);
 
   const removeItem = (id) => {
-    const newPeople=people.filter((person)=>person.id !== id);
+    let newPeople = people.filter((person) => person.id !== id);
     setPeople(newPeople);
-    // setPeople(people.filter((person)=>person.id !== id));
-  }
-  const removeAllItems = () => {
-    setPeople([]); //Boş bir diziye eşitlediğimizden dolayı tüm dizideki itemlarımız gitti.
-  }
+  };
   return (
     <div>
-      {
-        people.map((people) => {
-          const { id, name } = people;
-          return (
-            <div key={id}>
-              <h4>{name}</h4>
-              <button onClick={()=>removeItem(id)} className='btn'>Remove</button>
-            </div>
-          );
-        })
-      }
-      <button onClick={removeAllItems} className='btn'>Remove All Items</button>
+      {people.map((person) => {
+        const { id, name } = person;
+        return (
+          <div key={id} className='item'>
+            <h4>{name}</h4>
+            <button onClick={() => removeItem(id)}>remove</button>
+          </div>
+        );
+      })}
+      <button
+        className='btn'
+        style={{ marginTop: '2rem' }}
+        onClick={() => setPeople([])}
+      >
+        clear items
+      </button>
     </div>
   );
 };
